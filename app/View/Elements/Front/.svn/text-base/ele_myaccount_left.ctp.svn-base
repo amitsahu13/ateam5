@@ -1,0 +1,377 @@
+<?php $myImage = $this->requestAction(array('controller'=>'users', 'action'=>'getMyImage'));?>
+<div class="left_sidebar">
+        	<h2><a href="#">My Place</a></h2>
+        	<div class="aside_left">
+            	<div class="aside_left_hdng">
+                	<h3><?php echo ucfirst($myImage['User']['first_name']).' '.ucfirst($myImage['User']['last_name']); ?></h3>
+                  <?php  echo $this->Html->link(null,array('controller'=>'users','action'=>'user_profile_overview'), array('escape' => false,'class'=>'edit'));?>
+                </div>
+                <div class="profile_pic">
+				<?php 
+				echo $this->General->show_user_img($myImage['User']['id'],$myImage['UserDetail']['image'],'THUMB',$myImage['User']['first_name']);
+				?>      	
+                </div>
+				<?php  if($this->Session->read('Auth.User.role_id')==Configure::read('App.Role.Buyer')){ ?>	
+						<ul>
+							<li>
+							<?php
+							if($this->params->params['action'] == 'my_project' && $this->params->params['controller'] == 'projects'){
+								$class_project = 'slct';
+							}
+							else{
+								$class_project = "";
+							} 
+							echo $this->Html->link('My Projects',array('controller'=>'projects','action'=>'my_project'),array('escape'=>false,'div'=>false,'class'=>$class_project));
+							?>
+							</li>
+							 <li>
+							 <?php
+							 if($this->params->params['action'] == 'my_job' && $this->params->params['controller'] == 'jobs'){
+								$class_job = 'slct';
+							}
+							else{
+								$class_job = "";
+							} 
+							 if($this->request->params['action']=='my_job')
+							 {
+								echo $this->Html->link('My Jobs','javascript:void(0);',array('onclick'=>"javascript:my_job_show_hide('my_job_leader_expert')",'class'=>$class_job));
+							 }
+							 else
+							 {
+								echo $this->Html->link('My Jobs',array('controller'=>'jobs','action'=>'my_job'),array('class'=>$class_job));
+							 }
+							 
+							 if($this->request->params['action']=='my_job')
+							 {
+							 ?>
+								<ul class="JobCheckSub my_job_leader_expert" style="display:none;">
+								<li><input type="checkbox" name="" class="checkmyjob"/><label>Leader</label></li>
+								<li>
+								<input type="checkbox" name="" class="checkmyjob" /><label>Expert</label>
+								<a class="acrd_icon expert" href="javascript:void(0);" style="padding-right:40px;margin-top:7px;"></a>
+								
+								<ul class="JobCheckSub apply_invited" style="display:none;">
+									<li><input type="checkbox" name="" class="checkmyjob apply_invited_checkbox"/><label>Applied</label></li>
+									<li><input type="checkbox" name="" class="checkmyjob apply_invited_checkbox"/><label>Invited</label></li>
+								</ul>
+								
+								</li>
+								
+								</ul>
+							<?php
+							}
+							?>	
+							 </li>
+							 <li>
+							<?php
+							if($this->params->params['action'] == 'my_workroom' && $this->params->params['controller'] == 'users'){
+								$class_work = 'slct';
+							}
+							else{
+								$class_work = "";
+							} 
+							echo $this->Html->link('My Workrooms',array('controller'=>'users','action'=>'my_workroom'),array('escape'=>false,'div'=>false,'class'=>$class_work));
+							?>
+							</li>
+							
+							<li><a href="#">My Inbox <span>3</span></a></li>
+							<li><a href="#">My Experts</a></li>
+							<li><a href="#">Received Job Applications <span>3</span></a></li>
+							<li><a href="#">Sent Job Applications <span>3</span></a></li>
+							<li><a href="#">Received Invitations <span>3</span></a></li>
+							<li><a href="javascript:void(0);" id="myQuery">My Queries <span>3</span></a>
+								<ul class="QueriesNav myQuerysubmenu" style="display:none;">
+									<li class="QueriesAva"><a class="show_hide" href="javascript:void(0);" style="display: inline;">Available Queries<span class="arwblk"></span></a><div class="slidingDiv" style="display: block;">
+									<ul>
+									<li><a href="#">Create a room</a></li>
+									<li><a class="act" href="#">Another room</a></li>
+									<li><a href="#">Other workroom</a></li>
+									<li><a href="#">Other workroom</a></li>
+									</ul>
+									</div>
+									</li>
+									<li><a href="#">Current Queries Name</a><a href="#" class="DeleteIco"></a><a href="#" class="EditIco"></a></li>
+								</ul>
+							</li>
+							<li><a href="javascript:void(0)" onclick="javascript:my_account_left_link_show_hide('my_watch_list');">My Watch Lists</a>
+								<ul class="SubNaviLe my_watch_list" style="display:none;">
+									<li><?php echo $this->Html->link('Projects',array('controller'=>'watchlists','action'=>'my_watchlist_project'));?></li>
+									<li><?php echo $this->Html->link('Jobs',array('controller'=>'watchlists','action'=>'my_watchlist_job'));?></li>
+									<li><?php echo $this->Html->link('Experts',array('controller'=>'watchlists','action'=>'my_watchlist_expert'));?></li>
+									<li><?php echo $this->Html->link('Leaders',array('controller'=>'watchlists','action'=>'my_watchlist_leader'));?></li>
+								</ul>
+							</li>
+							<li>
+							 <a href="javascript:void(0)" onclick="javascript:my_account_left_link_show_hide('my_profile');">My Profile</a>
+							 <ul class="SubNaviLe my_profile" style="display:none;">
+									<li><a href="#">Privacy Policy</a></li>
+								</ul>
+							</li>
+							<li>
+							<?php
+							echo $this->Html->link($this->Html->image('authenticate.png',array('title'=>'authenticate','alt'=>'authenticate')),array('controller'=>'users','action'=>'userinfo_authenticate'),array('escape'=>false,'div'=>false,'title'=>'authenticate'));
+							?>
+							</li>
+							<li><a href="#">My contracts</a></li>
+							<li><a href="#">Preferences</a></li>
+							<li><a href="#">Report Violation</a></li>
+							<li><a href="#">Report Dispute</a></li>							
+						</ul>
+			<?php 	}
+				if($this->Session->read('Auth.User.role_id')==Configure::read('App.Role.Provider')){ ?>	
+						<ul>
+							
+							 <li>
+							 <?php
+							 if($this->params->params['action'] == 'my_job' && $this->params->params['controller'] == 'jobs'){
+								$class_job = 'slct';
+							}
+							else{
+								$class_job = "";
+							} 
+							 if($this->request->params['action']=='my_job')
+							 {
+								echo $this->Html->link('My Jobs','javascript:void(0);',array('onclick'=>"javascript:my_job_show_hide('my_job_leader_expert')",'class'=>$class_job));
+							 }
+							 else
+							 {
+								echo $this->Html->link('My Jobs',array('controller'=>'jobs','action'=>'my_job'),array('class'=>$class_job));
+							 }
+							 
+							 if($this->request->params['action']=='my_job')
+							 {
+							 ?>
+								<ul class="JobCheckSub my_job_leader_expert" style="display:none;">
+								<li><input type="checkbox" name=""  class="checkmyjob"/><label>Leader</label></li>
+								<li onclick="javascript:my_job_show_apply_invited_hide('apply_invited');">
+								<input type="checkbox" name="" class="checkmyjob"/><label>Expert</label>
+								<a class="acrd_icon expert" href="javascript:void(0);" style="padding-right:40px;margin-top:7px;"></a>
+								
+								<ul class="JobCheckSub apply_invited" style="display:none;">
+								<li><input type="checkbox" name="" class="checkmyjob apply_invited_checkbox"/><label>Applied</label></li>
+								<li><input type="checkbox" name="" class="checkmyjob apply_invited_checkbox"/><label>Invited</label></li>
+								</ul>
+								
+								</li>
+								
+								</ul>
+							<?php
+							}
+							?>	
+							 </li>
+							<li>
+							<?php
+							//pr($this->params->params);//die;
+							if($this->params->params['action'] == 'my_workroom' && $this->params->params['controller'] == 'users'){
+								$class_work = 'slct';
+							}
+							else{
+								$class_work = "";
+							} 
+							echo $this->Html->link('My Workrooms',array('controller'=>'users','action'=>'my_workroom'),array('escape'=>false,'div'=>false,'class'=>$class_work));
+							?>
+							</li>
+							<li>
+							<?php
+							if($this->params->params['action'] == 'user_profile_overview' && $this->params->params['controller'] == 'users'){
+								$class_expert_o = 'slct';
+							}
+							else{
+								$class_expert_o = "";
+							} 
+							echo $this->Html->link('Expert overview',array('controller'=>'users','action'=>'user_profile_overview'),array('escape'=>false,'div'=>false,'class'=>$class_expert_o));
+							?>
+							</li>
+							<li>
+							<?php
+							if($this->params->params['action'] == 'user_personal_detail' && $this->params->params['controller'] == 'users'){
+								$class_expert_p = 'slct';
+							}
+							else{
+								$class_expert_p = "";
+							}
+							echo $this->Html->link('Expert Personal Detail',array('controller'=>'users','action'=>'user_personal_detail'),array('escape'=>false,'div'=>false,'class'=>$class_expert_p));
+							?>
+							</li>
+							<li><a href="#">My Inbox <span>3</span></a></li>
+							<li><a href="#">Received Job Applications <span>3</span></a></li>
+							<li><a href="#">Sent Job Applications <span>3</span></a></li>
+							<li><a href="#">Received Invitations <span>3</span></a></li>
+							<li><a href="#">My Queries <span>3</span></a></li>
+							<li><a href="javascript:void(0)" onclick="javascript:my_account_left_link_show_hide('my_watch_list');">My Watch Lists</a>
+								<ul class="SubNaviLe my_watch_list" style="display:none;">
+									<li><a href="#">Projects</a></li>
+									<li><a href="#">Jobs</a></li>
+									<li><a href="#">Experts</a></li>
+									<li><a href="#">Leaders</a></li>
+								</ul>
+							</li>
+							<li>
+							 <a href="javascript:void(0)" onclick="javascript:my_account_left_link_show_hide('my_profile');">My Profile</a>
+							 <ul class="SubNaviLe my_profile" style="display:none;">
+									<li><a href="#">Privacy Policy</a></li>
+								</ul>
+							</li>
+							<li>
+							<?php
+							echo $this->Html->link($this->Html->image('authenticate.png',array('title'=>'authenticate','alt'=>'authenticate')),array('controller'=>'users','action'=>'userinfo_authenticate'),array('escape'=>false,'div'=>false,'title'=>'authenticate'));
+							?>
+							</li>
+							<li><a href="#">My contracts</a></li>
+							<li><a href="#">Preferences</a></li>
+							<li><a href="#">Report Violation</a></li>
+							<li><a href="#">Report Dispute</a></li>							
+						</ul>
+			<?php   }
+				if($this->Session->read('Auth.User.role_id')==Configure::read('App.Role.Both')){ ?>	
+						<ul>
+							<li>
+							<?php
+							if($this->params->params['action'] == 'my_project' && $this->params->params['controller'] == 'projects'){
+								$class_project = 'slct';
+							}
+							else{
+								$class_project = "";
+							} 
+							echo $this->Html->link('My Projects',array('controller'=>'projects','action'=>'my_project'),array('escape'=>false,'div'=>false,'class' => $class_project));
+							?>
+							</li>
+							  <li>
+							 <?php
+							 if($this->params->params['action'] == 'my_job' && $this->params->params['controller'] == 'jobs'){
+								$class_job = 'slct';
+							}
+							else{
+								$class_job = "";
+							} 
+							 if($this->request->params['action']=='my_job')
+							 {
+								echo $this->Html->link('My Jobs','javascript:void(0);',array('onclick'=>"javascript:my_job_show_hide('my_job_leader_expert')",'class'=>$class_job));
+							 }
+							 else
+							 {
+								echo $this->Html->link('My Jobs',array('controller'=>'jobs','action'=>'my_job'),array('class'=>$class_job));
+							 }
+							 
+							 if($this->request->params['action']=='my_job')
+							 {
+							 ?>
+								<ul class="JobCheckSub my_job_leader_expert" style="display:none;">
+								<li><input type="checkbox" name="" class="checkmyjob" /><label>Leader</label></li>
+								<li onclick="javascript:my_job_show_apply_invited_hide('apply_invited');">
+								<input type="checkbox" name=""  class="checkmyjob" /><label>Expert</label>
+								<a class="acrd_icon expert" href="javascript:void(0);" style="padding-right:40px;margin-top:7px;"></a>
+								<ul class="JobCheckSub apply_invited" style="display:none;">
+								<li><input type="checkbox" name=""  class="checkmyjob apply_invited_checkbox" /><label>Applied</label></li>
+								<li><input type="checkbox" name=""  class="checkmyjob apply_invited_checkbox"  /><label>Invited</label></li>
+								</ul>
+								
+								</li>
+								
+								</ul>
+							<?php
+							}
+							?>	
+							 </li>
+							<li>
+							<?php //action in params = my_job  my_project my_workroom
+							if($this->params->params['action'] == 'my_workroom' && $this->params->params['controller'] == 'users'){
+								$class_work = 'slct';
+							}
+							else{
+								$class_work = "";
+							} 
+							echo $this->Html->link('My Workrooms',array('controller'=>'users','action'=>'my_workroom'),array('escape'=>false,'div'=>false,'class'=>$class_work));
+							?>
+							</li>
+							
+							<li><a href="#">My Inbox <span>3</span></a></li>
+							<li><a href="#">My Experts</a></li>
+							<li><a href="#">Received Job Applications <span>3</span></a></li>
+							<li><a href="#">Sent Job Applications <span>3</span></a></li>
+							<li><a href="#">Received Invitations <span>3</span></a></li>
+							<li><a href="#">My Queries <span>3</span></a></li>
+							<li><a href="javascript:void(0)" onclick="javascript:my_account_left_link_show_hide('my_watch_list');">My Watch Lists</a>
+								<ul class="SubNaviLe my_watch_list" style="display:none;">
+									<li><a href="#">Projects</a></li>
+									<li><a href="#">Jobs</a></li>
+									<li><a href="#">Experts</a></li>
+									<li><a href="#">Leaders</a></li>
+								</ul>
+							</li>
+							<li>
+							 <a href="javascript:void(0)" onclick="javascript:my_account_left_link_show_hide('my_profile');">My Profile</a>
+							 <ul class="SubNaviLe my_profile" style="display:none;">
+									<li><a href="#">Privacy Policy</a></li>
+								</ul>
+							</li>
+							<li>
+							<?php
+							echo $this->Html->link($this->Html->image('authenticate.png',array('title'=>'authenticate','alt'=>'authenticate')),array('controller'=>'users','action'=>'userinfo_authenticate'),array('escape'=>false,'div'=>false,'title'=>'authenticate'));
+							?>
+							</li>
+							<li><a href="#">My contracts</a></li>
+							<li><a href="#">Preferences</a></li>
+							<li><a href="#">Report Violation</a></li>
+							<li><a href="#">Report Dispute</a></li>							
+						</ul>
+			<?php   } ?>
+			
+            </div>
+        </div>
+<script type="text/javascript">
+	function my_account_left_link_show_hide(hide_show_element)
+	{
+		if(jQuery('.'+hide_show_element).css('display') == 'none')
+		{
+			jQuery('.'+hide_show_element).slideDown();
+			
+		}
+		else if(jQuery('.'+hide_show_element).css('display') == 'block')
+		{
+			jQuery('.'+hide_show_element).slideUp();
+		}
+	}
+	
+	function my_job_show_hide(hide_show_element)
+	{
+		if(jQuery('.'+hide_show_element).css('display') == 'none')
+		{
+			jQuery('.'+hide_show_element).slideDown();
+			
+		}
+		else if(jQuery('.'+hide_show_element).css('display') == 'block')
+		{
+			jQuery('.'+hide_show_element).slideUp();
+			jQuery('.checkmyjob').attr('checked',false);
+		}
+	}
+	
+	jQuery(".expert").click(function(){
+		
+		if(jQuery('.apply_invited').css('display') == 'none')
+		{
+			jQuery('.apply_invited').slideDown();
+		}
+		else if(jQuery('.apply_invited').css('display') == 'block')
+		{
+			jQuery('.apply_invited').slideUp();
+			jQuery('.apply_invited_checkbox').attr('checked',false);
+		}
+		
+	});
+	
+	
+	jQuery("#myQuery").click(function(){
+	
+		if(jQuery('.myQuerysubmenu').css('display') == 'none')
+		{
+			jQuery('.myQuerysubmenu').slideDown();
+		}
+		else if(jQuery('.myQuerysubmenu').css('display') == 'block')
+		{
+			jQuery('.myQuerysubmenu').slideUp();
+		}
+		
+	})
+</script>

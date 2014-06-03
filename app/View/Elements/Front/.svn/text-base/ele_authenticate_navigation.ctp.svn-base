@@ -1,0 +1,38 @@
+<div class="cmpnsn_prgrsDV">
+	<div class="cmpnsn_prgrsnav">
+	<?php
+	$authenticate_navigation = array('User Info'=>array('controller'=>'users','action'=>'userinfo_authenticate'),'Social Media'=>array('controller'=>'users','action'=>'social_media_authenticate'),'Phone'=>array('controller'=>'users','action'=>'phone_authenticate'),'Address'=>array('controller'=>'users','action'=>'address_authenticate'),'Passport'=>array('controller'=>'users','action'=>'passport_authenticate'))
+	?>
+	<ul>
+	<?php
+	$i=1;
+
+	foreach($authenticate_navigation as $authenticate_navigation_key=>$authenticate_navigation_value)
+	{
+		if($this->request->params['controller'] == $authenticate_navigation_value['controller'] && $this->request->params['action'] == $authenticate_navigation_value['action'])
+		{
+			$class = "blue";
+		}
+		else
+		{
+			$class="";
+		}
+	?>
+		<li><a href="javascript:void(0);" class="<?php echo $class;?>"><span class="<?php echo $class; ?>"><?php echo $i ?></span> <?php echo $authenticate_navigation_key; ?></a></li>
+	<!--
+	<li><a href="#" class="blue"><span class="blue">1</span> General</a></li>
+	<li><a href="#"><span>2</span> Timeline</a></li>
+	<li><a href="#"><span>3</span> Compensation</a></li>
+	-->
+	<?php
+	$i++;
+	}
+	?>
+	</ul>
+	</div>
+	<div class="prgrsnav_fill">
+	<?php
+	echo $this->Html->image('75.jpg',array('div'=>false,'title'=>'75$'));
+	?>
+	</div>
+</div>

@@ -1,0 +1,246 @@
+<?php echo $this->element("Front/ele_post_project_navigation");?>	
+<?php echo $this->Html->script(array('ajaxuploadimage/ajaxupload'));?>
+<script type="text/javascript">
+    jQuery(function($){
+        //code for uploading project image starts here
+        var btnUpload=$('#upload');
+        var status=$('#status');
+		
+        new AjaxUpload(btnUpload, {		
+		
+            action: '<?php echo(SITE_URL);?>/projects/project_picupload',
+
+            //Name of the file input box
+            name: 'data[ImageTemp][project_image]',
+			id:	'project_image',
+            onSubmit: function(file, ext){
+			
+                if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){
+                    // check for valid file extension
+                    status.text('Only JPG, PNG or GIF files are allowed.').addClass('errorTxt');
+                    return false;
+                }
+				
+               $('#status').html('<img src="<?php echo(SITE_URL); ?>/img/ajax-loader_2.gif"/>');
+                //status.text('Uploading...');
+            },
+
+            onComplete: function(file, response){
+
+                //On completion clear the status
+               // status.text('');
+				$('#status').html('');
+                //Add uploaded file to list
+                var myimageresponse = response.split('|');
+				
+                if(myimageresponse[0]==="success"){
+				
+                    $('#userimageid').html('<img src="<?php echo(SITE_URL); ?>/img/project_temp/image/Thumb/thumb_'+myimageresponse[1]+'"/><input type="hidden" name="data[Project][project_image]" value="'+myimageresponse[1]+'"/>');
+                }else{
+                    $('<li></li>').appendTo('#files').text(file).addClass('errorTxt');
+                }
+            }
+        });
+
+        // code for uploading user image end here
+    });
+    String.prototype.trim = function() {
+        return this.replace(/^\s+|\s+$/g,"");
+    }
+    // code for uploading user image end here
+</script>
+<div class="product_dscrpBOX" style="width:100%;">
+<h3><span class="round_bgTXT">1</span>General</h3>
+<div class="compensation_frmDV">
+<?php
+echo $this->Form->create('Project',array('url'=>array('controller'=>'projects','action'=>'project_general'),'type'=>'file'));
+
+if(!empty($project_image)){
+	echo $this->Form->hidden('project_image',array('value'=>$project_image['ImageTemp']['project_image']));
+}
+if(!empty($project_file)){
+						
+	foreach($project_file as $key=>$file)
+	{	
+		
+		echo $this->Form->hidden('ProjectFile.'.$key.'.project_file',array('value'=>$file['FileTemp']['project_file']));	
+	}
+}
+?>
+		<div class="compensation_frmrow">
+			<div class="compensation_frmrow_L">
+				<p><label>Project Name<span>*</span></label></p>
+			</div>
+			<div class="compensation_frmrow_R">
+				<p><span class="TXT_rwndInPut">
+				<?php echo $this->Form->input('title', array('div'=>false, 'label'=>false, "class" => "TXT_rwndInPutRi with_Lrg"));?>
+				</span></p>
+			</div>
+		</div>
+		<div class="compensation_frmrow">
+			<div class="compensation_frmrow_L">
+				<p><label>Project detailed Description</label></p>
+			</div>
+			<div class="compensation_frmrow_R" style="padding-bottom:2px;">
+				<p><span class="rwndInPut_TXTaria">
+				<?php echo $this->Form->input('description', array('div'=>false, 'label'=>false, "class" => "TXTaria_rwndInPutRi","style"=>"width:338px;"));?>
+				</span></p>
+			</div>
+		</div>
+		
+		<div class="compensation_frmrow">
+			<div class="compensation_frmrow_R" style="margin-bottom:15px;">
+			<?php  
+					echo ($this->Form->input('project_description_visibility', array('type'=>'radio', 'options'=>Configure::read('App.ProjectDescription.Visiblity'),'default'=>'1', 'div'=>false,'legend'=>false, 'label'=>false,'class'=>'chckBX','style'=>'margin:0 6px 0 16px;')));
+			?>
+				<!--<input name="" type="checkbox" value="" class="chckBX" style="float:left;" /><span class="chkbx">Public view</span>
+				<input name="" type="checkbox" value="" class="chckBX" style="float:left;" /><span class="chkbx">Hidden view</span>
+				<input name="" type="checkbox" value="" class="chckBX" style="float:left;" /><span class="chkbx">Private view</span>-->
+			</div>
+		</div>
+		
+		<div class="compensation_frmrow">
+			<div class="compensation_frmrow_L">
+				<p><label>Project Visibility<span>*</span></label></p>
+			</div>
+			<div class="compensation_frmrow_R">
+				<p><span class="slct_rwndInPut">
+				<?php echo $this->Form->input('project_visibility_id', array('div'=>false, 'label'=>false,'empty'=>'-- Select Project Visibility --', "class" => "slct_rwndInPutRi with_sml1",'options'=>$visibility));?>
+				</span></p>
+			</div>
+		</div>
+		<div class="compensation_frmrow">
+			<div class="compensation_frmrow_L">
+				<p><label>Project  Picture</label></p>
+			</div>
+			<div class="compensation_frmrow_R">
+				<p>				
+				<input name="" type="button"  id='upload' class="upload_btn" value="Upload Picture"/><span id="status" style="color:red;"></span><br/>
+				<span id="userimageid">
+				<?php
+					$path =PROJECT_TEMP_THUMB_DIR_232_232;
+					echo $this->Html->image('project_temp/image/Thumb/thumb_'.$project_image['ImageTemp']['project_image']);
+				 ?>			
+				</span>
+				
+				</p>
+			</div>
+		</div>
+		<div class="compensation_frmrow">
+			<?php echo $this->element("Front/file_attachement");?>
+		</div>
+		<div class="compensation_frmrow">
+			<div class="compensation_frmrow_L">
+				<p><label>Project Category<span>*</span></label></p>
+			</div>
+			<div class="compensation_frmrow_R">
+				<p><span class="slct_rwndInPut">
+				<?php
+				echo ($this->Form->input('category_id', array('div'=>false, 'label'=>false,'empty'=>'-- Select a category--', "class" => "slct_rwndInPutRi with_sml1","options"=>$project_parent_category))); 
+				$this->Js->get('#ProjectCategoryId')->event('change',$this->Js->request(array('controller'=>'categories','action'=>'get_project_subcategory_front'), array('update'=>'#project_subcategory_update','async' => true,'method' => 'post','dataExpression'=>true,'data'=> $this->Js->serializeForm(array('isForm' => true,'inline' => true)))));
+				?>
+				</span>
+				<span class="slct_rwndInPut" style="margin-left:15px;" id="project_subcategory_update">
+				<?php
+				echo ($this->Form->input('sub_category_id', array('div'=>false, 'label'=>false,'empty'=>'-- Select a sub category --', "class" => "slct_rwndInPutRi with_sml1","options"=>NULL))); 
+				?>
+				</span>
+				</p>
+			</div>
+		</div>
+		<div class="compensation_frmrow">
+			<div class="compensation_frmrow_L">
+				<p><label>Project Type<span>*</span></label></p>
+			</div>
+			<div class="compensation_frmrow_R">
+				<p><span class="slct_rwndInPut">
+				<?php
+				echo ($this->Form->input('project_type_id', array('div'=>false, 'label'=>false,'empty'=>'-- Select Project Type --', "class" => "slct_rwndInPutRi with_sml1","options"=>$project_types))); 
+				?>
+				</span>
+				</p>
+			</div>
+		</div>
+		
+		<div class="compensation_frmrow">
+			<div class="compensation_frmrow_L">
+				<p><label>Project Target Location</label></p>
+			</div>
+			<div class="compensation_frmrow_R">
+				<p>
+					<span class="slct_rwndInPut">
+					<?php echo ($this->Form->input('region_id', array('div'=>false, 'label'=>false,'empty'=>'-- Select Region --','options'=>$region,"class" => "slct_rwndInPutRi with_sml1","error" => array("wrap" =>EDITWRAP, "class" => "error-message"))));
+					$this->Js->get('#ProjectRegionId')->event('change',$this->Js->request(array('controller'=>'countries','action'=>'get_country_region_for_project'), array('update'=>'#update_country','async' => true,'method' => 'post','dataExpression'=>true,'data'=> $this->Js->serializeForm(array('isForm' => true,'inline' => true)))));
+				?>              
+						
+					</span>
+					<span class="slct_rwndInPut" style="margin-left:15px;"  id="update_country">
+						<?php if (!empty($countries) && $countries!=''){
+								
+							echo ($this->Form->input('country_id', array('div'=>false, 'label'=>false, 'options'=>$countries ,"class" => "slct_rwndInPutRi with_sml1","error" => array("wrap" =>EDITWRAP, "class" => "error-message",'empty'=>'-- Select Country --'))));
+						}else{  
+						
+							echo ($this->Form->input('country_id', array('div'=>false, 'label'=>false,  'empty'=>'-- Select Country --',"class" => "slct_rwndInPutRi with_sml1","error" => array("wrap" =>EDITWRAP, "class" => "error-message",'empty'=>'-- Select Country --'))));
+						}
+						 $this->Js->get('#ProjectCountryId')->event('change',$this->Js->request(array('controller'=>'states','action'=>'get_state_for_project'), array('update'=>'#State','async' => true,'method' => 'post', 'dataExpression'=>true, 'data'=> $this->Js->serializeForm(array('isForm' => true,'inline' => true)))));
+						?> 
+					</span>
+					<span class="slct_rwndInPut"  id="State">
+					<?php if (!empty($states) && $states!=''){
+									
+								echo ($this->Form->input('state_id', array('div'=>false, 'label'=>false, 'options'=>$states ,"class" => "slct_rwndInPutRi with_sml1","error" => array("wrap" =>EDITWRAP, "class" => "error-message",'empty'=>'-- Select State --'))));
+							}else{  
+							
+								echo ($this->Form->input('state_id', array('div'=>false, 'label'=>false,  'empty'=>'-- Select State --',"class" => "slct_rwndInPutRi with_sml1","error" => array("wrap" =>EDITWRAP, "class" => "error-message",'empty'=>'-- Select State --'))));
+							}
+					?>
+				
+					</span>
+				</p>
+			</div>
+		</div>
+			
+		<div class="btm_nextbtnDV"> 
+			<span class="Continue4Btn" style="float:right;" ><input type="submit" name="" class="Continue4BtnRi" value="Next"></span>
+			<span class="Continue4Btn" style="float:right;"><input type="button" name="" class="Continue4BtnRi" value="Preview in public view"></span>
+		</div>
+			
+    <?php
+	echo $this->Form->end();
+	?>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(function(){		
+		jQuery(".delete").live('click',function(){
+			var id 		= 	jQuery(this).closest('li').attr('id');			
+			jConfirm('Are you sure you want to delete this file?', 'Confirmation Dialog', function(r) {
+				if(r == true)	{
+					jQuery.ajax({
+						type:"GET",
+						url:"<?php echo Router::url(array('controller'=>'projects', 'action'=>'delete_project_file')); ?>/"+ id,
+						success : function(data) {
+							jQuery('#fileattache').find('#'+id).remove();		
+						},
+						error : function() {
+							jAlert('File could not be deleted. Please try again', 'Alert Dialog');
+						},
+					})
+				}
+			});
+		});
+		jQuery(".download").live('click',function(){
+			var id 		= 	jQuery(this).closest('li').attr('id');	
+			window.location = SiteUrl+"/projects/download_project_file/"+ id;
+		});
+		
+	});	
+	
+	
+</script>		
+<?php
+	if (class_exists('JsHelper') && method_exists($this->Js, 'writeBuffer')) 
+	echo $this->Js->writeBuffer();
+?>		
+
+	

@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f1086526-4df5-45dd-8e5f-1c09527abd33" name="Default" comment="" />
+    <ignored path="app.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="app" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="project_business_stuff.ctp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/View/Projects/project_business_stuff.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="589" column="0" selection-start="18869" selection-end="18869" vertical-scroll-proportion="0.36486486" vertical-offset="9824" max-vertical-offset="17374">
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#6;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+                <marker date="1399301719000" expanded="false" signature="5625:5638" placeholder="..." />
+                <marker date="1399301719000" expanded="false" signature="6221:6232" placeholder="..." />
+                <marker date="1399301719000" expanded="false" signature="22065:22076" placeholder="..." />
+                <marker date="1399301719000" expanded="false" signature="22564:22609" placeholder="..." />
+                <marker date="1399301719000" expanded="false" signature="22711:22756" placeholder="..." />
+                <marker date="1399301719000" expanded="false" signature="22864:22909" placeholder="..." />
+                <marker date="1399301719000" expanded="false" signature="28352:28365" placeholder="..." />
+                <marker date="1399301719000" expanded="false" signature="28699:28710" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constant.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/constant.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="279" column="8" selection-start="13592" selection-end="13612" vertical-scroll-proportion="-3.372549" vertical-offset="4571" max-vertical-offset="5304">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/View/Projects/public_view.ctp" />
+        <option value="$PROJECT_DIR$/View/Elements/Front/ele_footer.ctp" />
+        <option value="$PROJECT_DIR$/Config/core.php" />
+        <option value="$PROJECT_DIR$/Controller/TeamupController.php" />
+        <option value="$PROJECT_DIR$/Controller/InboxController.php" />
+        <option value="$PROJECT_DIR$/View/Workrooms/workroom.ctp" />
+        <option value="$PROJECT_DIR$/View/Workrooms/projecto.ctp" />
+        <option value="$PROJECT_DIR$/View/Users/userinfo_authenticate.ctp" />
+        <option value="$PROJECT_DIR$/Model/Workroom.php" />
+        <option value="$PROJECT_DIR$/Controller/WorkroomsController.php" />
+        <option value="$PROJECT_DIR$/Model/Job.php" />
+        <option value="$PROJECT_DIR$/View/Teamup/general.ctp" />
+        <option value="$PROJECT_DIR$/Controller/AdminsController.php" />
+        <option value="$PROJECT_DIR$/View/Admins/admin_linkid.ctp" />
+        <option value="$PROJECT_DIR$/View/Elements/apply_job.ctp" />
+        <option value="$PROJECT_DIR$/View/Users/user_profile_overview.ctp" />
+        <option value="$PROJECT_DIR$/Controller/UsersController.php" />
+        <option value="$PROJECT_DIR$/View/Users/user_personal_detail.ctp" />
+        <option value="$PROJECT_DIR$/Controller/InvitepopupController.php" />
+        <option value="$PROJECT_DIR$/View/Layouts/lay_search_job.ctp" />
+        <option value="$PROJECT_DIR$/Controller/ProjectsController.php" />
+        <option value="$PROJECT_DIR$/View/Projects/project_business_stuff.ctp" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
+    <option name="y" value="22" />
+    <option name="width" value="1280" />
+    <option name="height" value="717" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="preferences.fileTypes" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tmp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tmp" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1086526-4df5-45dd-8e5f-1c09527abd33" name="Default" comment="" />
+      <created>1394543602490</created>
+      <updated>1394543602490</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1" y="22" width="1280" height="717" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13607594" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Model/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7650" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Teamup/general.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="20" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1853" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/AdminsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="295" column="53" selection-start="9922" selection-end="9938" vertical-scroll-proportion="0.0" vertical-offset="5015" max-vertical-offset="10761" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Job.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="746" column="26" selection-start="22638" selection-end="22638" vertical-scroll-proportion="0.0" vertical-offset="12682" max-vertical-offset="13090">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/TeamupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1080" column="17" selection-start="33217" selection-end="33217" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17535" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/WorkroomsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="8" selection-start="1898" selection-end="1898" vertical-scroll-proportion="0.0" vertical-offset="1270" max-vertical-offset="13260" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Workroom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="717" column="16" selection-start="18162" selection-end="18162" vertical-scroll-proportion="0.0" vertical-offset="10495" max-vertical-offset="24495" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3836" column="1" selection-start="129624" selection-end="129624" vertical-scroll-proportion="0.0" vertical-offset="57152" max-vertical-offset="58200" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1650" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="38" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="5265" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/states_amirc.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3837" column="106" selection-start="129571" selection-end="129571" vertical-scroll-proportion="0.0" vertical-offset="57092" max-vertical-offset="57855" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="9" selection-start="597" selection-end="604" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Projects/public_view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="48" selection-start="2703" selection-end="2703" vertical-scroll-proportion="-5.625" vertical-offset="1800" max-vertical-offset="10995" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Elements/Front/ele_search_project_right_sidebar.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="139" column="84" selection-start="4395" selection-end="4395" vertical-scroll-proportion="0.33447686" vertical-offset="1890" max-vertical-offset="4350" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Elements/Front/ele_footer.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="110" selection-start="2107" selection-end="2107" vertical-scroll-proportion="0.48885077" vertical-offset="570" max-vertical-offset="4575" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/CCSV.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="31" selection-start="288" selection-end="288" vertical-scroll-proportion="0.22765599" vertical-offset="0" max-vertical-offset="2280" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="9" selection-start="597" selection-end="604" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1650" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="38" selection-start="1158" selection-end="1158" vertical-scroll-proportion="-0.46312177" vertical-offset="540" max-vertical-offset="4995" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/states_amirc.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/JobsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3099" column="37" selection-start="103023" selection-end="103023" vertical-scroll-proportion="0.49371633" vertical-offset="46120" max-vertical-offset="48945" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/TeamupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="773" column="0" selection-start="22711" selection-end="22711" vertical-scroll-proportion="0.6768402" vertical-offset="11128" max-vertical-offset="17505" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Layouts/workrooms.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="16" selection-start="1140" selection-end="1144" vertical-scroll-proportion="-0.5263158" vertical-offset="855" max-vertical-offset="1425" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/InboxController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1045" selection-end="1045" vertical-scroll-proportion="-7.3333335" vertical-offset="379" max-vertical-offset="975" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Workrooms/projecto.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="233" column="53" selection-start="6333" selection-end="6333" vertical-scroll-proportion="0.15437393" vertical-offset="3405" max-vertical-offset="6750" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Users/userinfo_authenticate.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="1" selection-start="3580" selection-end="3580" vertical-scroll-proportion="0.43396226" vertical-offset="1217" max-vertical-offset="3285" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/WorkroomsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="512" column="51" selection-start="14282" selection-end="14282" vertical-scroll-proportion="0.95152605" vertical-offset="7150" max-vertical-offset="13335" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Workroom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="881" column="62" selection-start="22149" selection-end="22149" vertical-scroll-proportion="0.62836623" vertical-offset="12865" max-vertical-offset="24675" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Workrooms/workroom.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="307" column="74" selection-start="7848" selection-end="7855" vertical-scroll-proportion="0.22441652" vertical-offset="4480" max-vertical-offset="7545" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Job.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="746" column="26" selection-start="22638" selection-end="22638" vertical-scroll-proportion="0.0" vertical-offset="12682" max-vertical-offset="13090">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/AdminsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="295" column="53" selection-start="9922" selection-end="9938" vertical-scroll-proportion="0.0" vertical-offset="5015" max-vertical-offset="10761" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Admins/admin_linkid.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="44" selection-start="274" selection-end="274" vertical-scroll-proportion="0.2572899" vertical-offset="0" max-vertical-offset="615" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Teamup/general.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="23" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.2688928" vertical-offset="493" max-vertical-offset="1853" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7565" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Elements/apply_job.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="9" selection-start="853" selection-end="853" vertical-scroll-proportion="0.76119405" vertical-offset="0" max-vertical-offset="2788">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Jobs/search_job.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="4" selection-start="748" selection-end="748" vertical-scroll-proportion="0.19837399" vertical-offset="252" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Users/user_profile_overview.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="1" selection-start="5234" selection-end="5234" vertical-scroll-proportion="0.70598006" vertical-offset="2193" max-vertical-offset="13787">
+          <folding>
+            <marker date="1399293013000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1399293013000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1399293013000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Users/edit_profile.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="27" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.056384742" vertical-offset="510" max-vertical-offset="4964">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Users/register.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="449" column="7" selection-start="17972" selection-end="17972" vertical-scroll-proportion="0.53067994" vertical-offset="7313" max-vertical-offset="8347">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Users/user_personal_detail.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="176" selection-start="5225" selection-end="5225" vertical-scroll-proportion="0.49169436" vertical-offset="2254" max-vertical-offset="5338">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/InvitepopupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="5" selection-start="2191" selection-end="2191" vertical-scroll-proportion="0.73421925" vertical-offset="1122" max-vertical-offset="4029">
+          <folding>
+            <marker date="1399295467000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1399295467000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..send_auth_request..." />
+            <marker date="1399295467000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1399295467000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Jobs/job_detail.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="616" column="55" selection-start="18805" selection-end="18805" vertical-scroll-proportion="0.35181975" vertical-offset="10269" max-vertical-offset="10948">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Layouts/lay_search_job.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="12" selection-start="3173" selection-end="3173" vertical-scroll-proportion="0.71869916" vertical-offset="1564" max-vertical-offset="3128">
+          <folding>
+            <marker date="1399296387000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2215" column="17" selection-start="78669" selection-end="78670" vertical-scroll-proportion="1.1378738" vertical-offset="36970" max-vertical-offset="65960">
+          <folding>
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="UPDATE users..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT skill..skills_users..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="UPDATE user_..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="UPDATE user_..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="UPDATE user_..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..auth_payed..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="UPDATE users..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="UPDATE users..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT worki..users_working_statuses..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT name ..working_statuses..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT avail..user_details..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT avail..user_details..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT worki..users_working_statuses..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT name ..working_statuses..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT skill..skills_users..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT name ..availabilities..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..regions..." />
+            <marker date="1399293129000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/ProjectsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1981" column="13" selection-start="70463" selection-end="70463" vertical-scroll-proportion="0.36221838" vertical-offset="33349" max-vertical-offset="52292">
+          <folding>
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="UPDATE clb_p..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="UPDATE proje..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..project_files..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="SELECT skill..skills_users..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="SELECT name ..availabilities..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="SELECT avail..user_details..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="UPDATE jobs ..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="UPDATE proje..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="UPDATE workr..." />
+            <marker date="1399298191000" expanded="true" signature="-1:-1" placeholder="UPDATE workr..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/constant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="279" column="8" selection-start="13592" selection-end="13612" vertical-scroll-proportion="-3.372549" vertical-offset="4571" max-vertical-offset="5304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Projects/project_business_stuff.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="589" column="0" selection-start="18869" selection-end="18869" vertical-scroll-proportion="0.36486486" vertical-offset="9824" max-vertical-offset="17374">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#6;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <marker date="1399301719000" expanded="false" signature="5625:5638" placeholder="..." />
+            <marker date="1399301719000" expanded="false" signature="6221:6232" placeholder="..." />
+            <marker date="1399301719000" expanded="false" signature="22065:22076" placeholder="..." />
+            <marker date="1399301719000" expanded="false" signature="22564:22609" placeholder="..." />
+            <marker date="1399301719000" expanded="false" signature="22711:22756" placeholder="..." />
+            <marker date="1399301719000" expanded="false" signature="22864:22909" placeholder="..." />
+            <marker date="1399301719000" expanded="false" signature="28352:28365" placeholder="..." />
+            <marker date="1399301719000" expanded="false" signature="28699:28710" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

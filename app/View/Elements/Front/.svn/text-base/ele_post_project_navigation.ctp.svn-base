@@ -1,0 +1,49 @@
+<div class="cmpnsn_prgrsDV">
+	<div class="cmpnsn_prgrsnav">
+		<!--
+		<ul>
+			<li><a href="#" class="blue"><span class="blue">1</span> General</a></li>
+			<li><a href="#"><span>2</span> Leader </a></li>
+			<li><a href="#"><span>3</span> Status and Timeline </a></li>
+			<li><a href="#"><span>3</span>Business Stuff</a></li>
+		</ul>
+		-->
+	<?php
+	$post_job_navigation = array(
+	
+	'General'=>array('controller'=>'projects','action'=>'project_general'),
+	'Leader remove'=>array('controller'=>'projects','action'=>'project_leader'),
+	'Status and Timeline'=>array('controller'=>'projects','action'=>'project_status_timeline'),
+	'Business Stuff'=>array('controller'=>'projects','action'=>'project_business_stuff'))
+	
+	?>
+	<ul>
+		<?php
+		$i=1;
+
+		foreach($post_job_navigation as $post_job_navigation_key=>$post_job_navigation_value)
+		{
+			if($this->request->params['controller'] == $post_job_navigation_value['controller'] && $this->request->params['action'] == $post_job_navigation_value['action'])
+			{
+				$class = "blue";
+			}
+			else
+			{
+				$class="";
+			}
+		?>
+			<?php
+			/* <li><a href="<?php echo Configure::read('App.SiteUrl')."/".$post_job_navigation_value['controller']."/".$post_job_navigation_value['action']?>" class="<?php echo $class;?>"><span class="<?php echo $class; ?>"><?php echo $i ?></span> <?php echo $post_job_navigation_key; ?></a></li> */
+			?>
+			<li><a href="javascript:void(0);" class="<?php echo $class;?>"><span class="<?php echo $class; ?>"><?php echo $i ?></span> <?php echo $post_job_navigation_key; ?></a></li>
+		<?php
+		$i++;
+		}
+		?>
+	</ul>
+	</div>
+	<div class="prgrsnav_fill">
+		<?php echo $this->Html->image('75.jpg',array('escape'=>false));?>
+		
+	</div>
+</div>

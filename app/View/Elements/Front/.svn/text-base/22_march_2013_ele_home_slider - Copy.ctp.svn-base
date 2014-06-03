@@ -1,0 +1,55 @@
+
+<?php 
+echo $this->Html->css(array('slider/coda-slider'));
+echo $this->Html->script(array('jquery/slider/jquery-1.7.2.min','jquery/slider/jquery-ui-1.8.20.custom.min','jquery/slider/jquery.coda-slider-3.0.min'));
+?>
+<script type="text/javascript">
+		$(function(){
+			  $('#slider-id').codaSlider({
+				autoSlide:true,
+				autoHeight:false
+			  });
+		});
+</script>
+<div class="slider" id="slider3">	
+	<div class="coda-slider"  id="slider-id">
+	<?php $i=0;	
+	foreach($imageArray as $value)
+	{
+		$i++;
+		switch($value['Slider']['id'])
+		{
+			case 6:
+				$style= 'style="color:#FFF000"';
+				$color= "#FFF000 !important";
+				break;
+				
+			case 7:
+				$style= 'style="color:#F60D53"';
+				$color= "#F60D53 !important";
+				break;
+				
+			case 8:
+				$style= 'style="color:#00B6CD"';
+				$color= "#00B6CD !important";
+				break;
+				
+			default:
+				$style= 'style="color#000000"';
+				break;
+		}
+	?>
+      <div>
+		<div class="inner">
+			<h1 <?php echo $style; ?>><?php echo $value['Slider']['title'];?></h1>
+			<h3><?php echo $value['Slider']['description'];?></h3>
+			<h1><a href="#">post a dream </a></h1>
+		</div>
+		<h2 class="title" style="display:none;"><?php echo $i; ?></h2>
+		<?php echo $this->Html->image(SLIDER_SHOW_PATH.$value['Slider']['image'],array('title'=>'A Team 4 a Dream','alt'=>'image'.' '.$i.''));?>
+      </div>
+     <?php
+	}
+	 ?>
+    </div>
+</div>	

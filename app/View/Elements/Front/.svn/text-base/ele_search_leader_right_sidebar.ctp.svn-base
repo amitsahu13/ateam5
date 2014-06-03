@@ -1,0 +1,119 @@
+<h2><a href="#" class="txt_trans"><?php echo $this->Paginator->counter(array('format' => '( %start% - %end%  of %count% results )'));?></a></h2>
+	<span class="slct_rwndInPut sort_dropawn dropdwn_H">
+			<?php
+				  $option=array('first_name'=>'First Name','last_name'=>'Last Name','registration_date'=>'Registration Date');
+			echo ($this->Form->input('User.sortby', array('div'=>false, 'label'=>false,'empty'=>'-- SortBy --','options'=>$option,"class" => "slct_rwndInPutRi with_sml1",'onchange'=>'javascript:usersortBy();')));
+				
+			?> 
+	</span>
+	<div class="clear"></div>	
+	<?php if(!empty($leaderData)){
+	//pr($leaderData);
+				/* $this->ExPaginator->options = array('url' => $this->passedArgs);
+				$this->Paginator->options(array('url' => $this->passedArgs)); */
+	foreach($leaderData as $key=>$leader){?>
+		<div class="expert_detail">
+			<h2 class="col_blue"><?php echo  $this->Html->link(ucfirst($leader['User']['first_name']." ".$leader['User']['last_name']),array('controller'=>'users','action'=>'user_public_view',$leader['User']['id']))?></h2>
+			<div class="clear"></div>
+			<!--
+			<div class="whtlist">
+				<a class="flr_icon blue_i" href="#"></a>
+				<p><a href="#">Add to watchlist</a> </p>
+			</div>
+			-->
+			<div class="deatil_content">
+				<div class="detail_top">
+					<div class="expert_img">
+						<?php 
+						 $user_img=$this->General->show_user_img($leader['User']['id'],$leader['UserDetail']['image'],'SMALL',$leader['User']['first_name'].' '.$leader['User']['last_name']);
+						echo $this->Html->link($user_img,array('controller'=>'users','action'=>'user_public_view',$leader['User']['id']),array('div'=>false,'escape'=>false));
+
+						?></div>
+					<div class="detail">
+						<div class="nav_bar">
+							<ul>
+								<li style="border:none;"><a href="#" class="chat"> Chat in workroom </a></li>
+								<!--
+								<li><a href="#" class="invite_team"> Invite to team-up</a></li>
+								<li class="last"><a href="#" class="contact">  Contact</a></li>
+								-->
+							</ul>
+						</div>
+						<div class="clear"></div>
+						<div class="fac_bar">
+							<ul>
+								<?php
+									$leadership_category_name = '';
+									if(isset($leader['UserDetail']['LeaderCategory']['name']) &&!empty($leader['UserDetail']['LeaderCategory']['name']))
+									{
+										$leadership_category_name=$leader['UserDetail']['LeaderCategory']['name'];
+									}
+								?>
+								<?php if($leader['User']['role_id']==Configure::read('App.Role.Buyer') || $leader['User']['role_id']==Configure::read('App.Role.Both')){?>
+								<li><span>Leadership Category</span>:<?php echo $leadership_category_name;?></li>		
+								<?php }?>
+								<?php
+									$country_name = '';
+									
+									$location = '';
+									if(isset($leader['UserDetail']['Region']['name']) &&!empty($leader['UserDetail']['Region']['name']))
+									{
+										$location = $leader['UserDetail']['Region']['name'];
+									}
+									if(isset($leader['UserDetail']['Country']['name']) &&!empty($leader['UserDetail']['Country']['name']))
+									{
+										$location.= ",".$leader['UserDetail']['Country']['name'];
+									}
+									
+									if(isset($leader['UserDetail']['State']['name']) &&!empty($leader['UserDetail']['State']['name']))
+									{
+										$location.= ",".$leader['UserDetail']['State']['name'];
+									}
+									?>
+								<li><div class="flag_icon"><?php if(!empty($leader['UserDetail']['Country']['country_flag'])){ echo $this->Html->image(FLAG_DIR_TEMP_PATH.$leader['UserDetail']['Country']['country_flag'],array('title'=>ucfirst($country_name),'alt'=>ucfirst($country_name)));} ?></div><span>Location</span>
+								<?php echo $location;?> 
+								</li>
+								<?php if($leader['User']['role_id']==Configure::read('App.Role.Both')){?>
+								<li><span>Reference Minimum Hourly Rate</span>:<?php echo $leader['UserDetail']['min_reference_rate'];?> Hrs/Week.</li>					<li><span>Reference Maximum Hourly Rate</span>:<?php echo $leader['UserDetail']['max_reference_rate'];?> Hrs/Week.</li>
+								<?php }?>
+								<li><span>Location</span>: <?php echo $leader['0']['totalProject'];?> Projects</li>
+								<li class="last"><a href="#"><?php echo $this->Html->image('blu_star.png'); ?></a><a href="#"><?php echo $this->Html->image('blu_star.png'); ?></a><a href="#"><?php echo $this->Html->image('blu_star.png'); ?></a><a href="#"><?php echo $this->Html->image('grey_star.png'); ?></a><a href="#"><?php echo $this->Html->image('grey_star.png'); ?></a></li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="detail_bottom">
+					<p><?php echo nl2br(ucfirst($leader['UserDetail']['about_us']));?> </p>
+
+					<div class="skills">Skills:<?php
+						$output = array();
+						foreach( $leader['Skill'] as $leaderskill_name){
+						  $output[] = '<span>'.ucfirst($leaderskill_name['name'])."</span>";
+						}
+						echo $skill_data=implode(',&nbsp;&nbsp;', $output);
+					?></div>
+				</div>
+			</div>	
+			 
+		</div>
+		<div class="clear"></div>
+	<?php 
+		}
+	}else{
+	echo $this->element('Front/ele_no_record_found');
+	}?>
+
+ 
+	<div class="paginatn">
+		<p><a href="javascript:void(0);" id="back_to_top">Back to top ^</a></p>
+		<?php if($this->request->params['paging']['User']['count']>=Configure::read('App.PageLimit')){ ?>
+			<?php echo $this->element("Front/ele_paging"); ?>
+		<?php }?>
+	</div>
+<script>
+$("#back_to_top").click(function(){
+	$('html, body').animate({ scrollTop: 0 }, 1000);
+});
+</script>

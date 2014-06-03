@@ -1,0 +1,71 @@
+	<li>
+		<label>Portfolio</label>
+		<div class="OverviewFrmRi">
+		  <input type="button" name="" class="upload_btn confirm_details" value="Add Item">
+		</div>
+	</li>
+	<li>
+		<label>&nbsp;</label>
+		<div class="OverviewFrm3Ri">
+		<div class="CategoryA">
+			<h4>Job Categories:</h4>
+			<ul class="CategoryALi">
+			<?php if(!empty($user_data['UserPortfolio'])){
+					$i=0;
+					foreach($user_data['UserPortfolio'] as $key=>$portfolio){
+					if($i%4==0){
+						$class='last';
+					}else{
+						$class='';
+					}	
+					if($portfolio['Category']['type_for']=='2'){
+						
+				?>
+						  <li class="<?php echo $class;?>">
+							  <?php 
+						    echo $this->General->show_user_portfolio_img($portfolio['user_id'],$portfolio['image'],'THUMB',$portfolio['title']);
+							 // echo $this->Html->image('img_1.png',array('alt'=>'img','title'=>'img'));?>
+								<div class="CateInfo">
+								  <p><?php echo $portfolio['title'];?>
+									& <a href="<?php echo $portfolio['url'];?>" target="_blank">link to more</a></p>
+								</div>
+						  </li>
+				 <?php 
+						}
+					$i++;		
+					}
+			}?>
+			 
+			</ul>
+		  </div>
+		 <div class="CategoryA">
+			<h4>Project Categories:</h4>
+			<ul class="CategoryALi">
+			<?php if(!empty($user_data['UserPortfolio'])){
+					$i=0;
+					foreach($user_data['UserPortfolio'] as $key=>$portfolio){
+					if($i%4==0){
+						$class='last';
+					}else{
+						$class='';
+					}	
+					if($portfolio['Category']['type_for']=='1'){
+						
+				?>
+			  <li class="<?php echo $class;?>">
+			   <?php echo $this->Html->image('img_1.png',array('alt'=>'img','title'=>'img'));?>
+				<div class="CateInfo">
+				  <p><?php echo $portfolio['title'];?>
+					& <a href="<?php echo $portfolio['url'];?>" target="_blank">link to more</a></p></p>
+				</div>
+			  </li>
+			   <?php 
+						}
+					$i++;		
+					}
+			}?>
+			 
+			</ul>
+		  </div>
+		</div>
+	</li>

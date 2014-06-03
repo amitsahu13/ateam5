@@ -1,0 +1,127 @@
+<?php if(!empty($my_job_list)){
+			
+			foreach($my_job_list as $my_job){
+
+					if($my_job['Job']['status']=='1')
+					{
+						$class='col_blue_title_blue';
+					}else{
+						$class='col_blue_title_pink';
+					}
+	?>		
+			<div class="expert_detail max_width">
+					<h2 style="padding:20px 15px 9px!important;">
+					
+					<?php echo $this->Html->link($my_job['Job']['title'].'@'.$my_job['Project']['title'],array('controller'=>'jobs','action'=>'job_detail',$my_job['Job']['id']),array('class'=>"$class",'title'=>$my_job['Job']['title'],'alt'=>$my_job['Job']['title'])); ?>
+					 <?php 
+					if($my_job['Job']['status']=='1')
+					{
+					 echo $this->Html->link(null,array('controller'=>'jobs','action'=>'job_general',$my_job['Job']['project_id'],$my_job['Job']['id']), array('escape' => false,'style'=>'margin-left:10px !important; margin-top:2px !important;','class'=>'edit'));
+					} 
+					 ?>
+					</h2>
+					<div class="whtlist">
+						<a class="flr_icon blue_i" href="#"></a>
+						<p><a href="#">My post</a> </p>
+					</div>
+					<div class="clear"></div>
+					<div class="deatil_content_large">
+						<div class="detail_top_large">
+							<div class="expert_img">
+							<?php 
+							if($my_job['Job']['status']=='1'){
+								if(!empty($my_job['Project']['project_image'])){
+									 $project_img = $this->General->show_project_img($my_job['Project']['id'],$my_job['Project']['project_image'],'SMALL',$my_job['Project']['title']);									
+									 echo $this->Html->link($project_img,array('controller'=>'jobs','action'=>'job_detail',$my_job['Job']['id']),array('div'=>false,'escape'=>false));
+								}else{
+									 $user_img=$this->General->show_user_img($my_job['Project']['User']['id'],$my_job['Project']['User']['image'],'SMALL',$my_job['Project']['User']['first_name'].' '.$my_job['Project']['User']['last_name']);
+									 echo $this->Html->link($user_img,array('controller'=>'jobs','action'=>'job_detail',$my_job['Job']['id']),array('div'=>false,'escape'=>false));
+								}
+							}else{
+									
+								$expert_img=$this->General->show_user_img($my_job['JobBid']['0']['user_id'],$my_job['JobBid']['0']['User']['image'],'SMALL',$my_job['JobBid']['0']['User']['first_name'].' '.$my_job['JobBid']['0']['User']['last_name']);
+								echo $this->Html->link($expert_img,array('controller'=>'jobs','action'=>'job_detail',$my_job['Job']['id']),array('div'=>false,'escape'=>false));
+								
+							}	
+							?>
+							</div>
+							<div class="detail_large  float_left">
+								<div class="fac_bar">
+									<ul>
+									
+										<li>
+										<?php if($my_job['Job']['status']=='1'){ echo "Open for Team Up"; }else{ echo "Working";}?>
+										</li>										
+										<?php if($my_job['Job']['status']=='2'){ ?>
+											<li><?php echo ucfirst($my_job['JobBid']['0']['User']['first_name']).' '.ucfirst($my_job['JobBid']['0']['User']['last_name']);?></li>
+										<?php }?>
+										<li><a href="#"> 2 Proposals</a> </li>
+										<?php 
+										$roleId=$this->Session->read('Auth.User.role_id');
+										if($roleId=='4' || $roleId=='5'){
+											if($my_job['JobBid']['0']['status']=='1' ){ ?>
+												<li>Applied Date: <?php echo date('F d, Y',strtoTime($my_job['JobBid']['0']['created']));?></li>
+										<?php }										
+										}
+										if($roleId=='3'  || $roleId=='5'){
+											if($my_job['Job']['status']=='1' ){ 
+											?>
+											<li>Posted Date: <?php echo date('F d, Y',strtoTime($my_job['Job']['created']));?></li>	
+
+										
+										<?php }
+										}?>
+										<li><span class="RedBoxRo">20</span></li>	
+										<!--<li><div class="flag_icon"><?php //echo $this->Html->image('flag_icon.png'); ?></div>   United States </li>
+										<li>Electronic Gadgets </li>
+										<li>12 Hrs/Week.</li>
+										<li> 3 Projects</li>
+
+										<li class="last"><a href="#"><?php //echo $this->Html->image('blu_star.png'); ?></a><a href="#"><?php //echo $this->Html->image('blu_star.png'); ?></a><a href="#"><?php //echo $this->Html->image('blu_star.png'); ?></a><a href="#"><?php //echo $this->Html->image('blu_star.png'); ?></a><a href="#"><?php //echo $this->Html->image('blu_star.png'); ?></a></li>-->
+									</ul>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="nav_bar Listnavbar">
+									<ul>
+										<li><a href="#" class="exprt_smbl2">View</a></li>
+										<li><a href="#" class="chat"> Chat in workroom </a></li>
+										<li><a href="#" class="invite_team"> Invite to team-up</a></li>
+										<li class="last"><a href="#" class="contact">  Contact</a></li>
+										
+									</ul>
+							</div>
+							<div class="clear"></div>
+						</div>
+
+						<div class="detail_bottom">
+							<p><?php echo nl2br(ucfirst($my_job['Job']['description'])); ?></p>
+
+							<!--<div class="skills">Skills: <span class="col_blue">PHP5</span>, <span class="col_blue">MySql</span>, <span class="col_blue">Programming Aptitute</span>
+							</div>-->
+						</div>         
+					</div>         
+			</div>
+			<div class="clear"></div>
+			
+		<?php 
+			}
+		}else{
+		
+			echo $this->element('Front/ele_no_record_found'); 
+		}?>
+		<div class="paginatn widTH">
+		<p><a href="javascript:void(0);" id="back_to_top">Back to top ^</a></p>
+		<?php if($this->request->params['paging']['Job']['count']>=Configure::read('App.PageLimit')){ ?>
+			<?php echo $this->element("Front/ele_paging"); ?>
+		<?php }?>
+		</div>
+<script>
+$("#back_to_top").click(function(){
+$('html, body').animate({ scrollTop: 0 }, 1000);
+});
+</script>		
+		<?php
+	if (class_exists('JsHelper') && method_exists($this->Js, 'writeBuffer')) 
+	echo $this->Js->writeBuffer();
+?>

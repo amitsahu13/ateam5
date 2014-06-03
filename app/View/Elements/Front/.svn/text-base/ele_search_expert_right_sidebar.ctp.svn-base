@@ -1,0 +1,120 @@
+<h2><a href="javascript:void(0);" class="txt_trans"><?php echo $this->Paginator->counter(array('format' => '( %start% - %end%  of %count% results )'));?></a></h2>
+	<span class="slct_rwndInPut sort_dropawn dropdwn_H">
+	<?php
+	$option=array('first_name'=>'First Name','last_name'=>'Last Name','created'=>'Registration Date');
+			echo ($this->Form->input('User.sortby', array('div'=>false, 'label'=>false,'empty'=>'-- SortBy --','options'=>$option,"class" => "slct_rwndInPutRi with_sml1",'onchange'=>'javascript:expertsortBy();')));
+	?>
+	</span>
+	<div class="clear"></div>
+	<?php
+	if(!empty($data))
+	{
+		/* $this->ExPaginator->options = array('url' => $this->passedArgs);
+		$this->Paginator->options(array('url' => $this->passedArgs)); */
+		foreach($data as $data_key=>$data_value)
+		{
+			
+	?>
+			<div class="expert_detail">
+				<h2><?php echo  $this->Html->link(ucfirst($data_value['User']['first_name']." ".$data_value['User']['last_name']),array('controller'=>'users','action'=>'user_public_view',$data_value['User']['id']))?></h2>
+				<div class="clear"></div>
+				<!--
+				<div class="whtlist">
+				<a class="flr_icon" href="#"></a>
+				<p><a href="#">Add to watchlist</a> </p>
+				</div>
+				-->
+				<div class="deatil_content">
+					<div class="detail_top">
+						<div class="expert_img">
+						<?php 
+						 $user_img=$this->General->show_user_img($data_value['User']['id'],$data_value['UserDetail']['image'],'SMALL',$data_value['User']['first_name'].' '.$data_value['User']['last_name']);
+						echo $this->Html->link($user_img,array('controller'=>'users','action'=>'user_public_view',$data_value['User']['id']),array('div'=>false,'escape'=>false));
+
+						?>
+						</div>
+						<div class="detail">
+							<div class="nav_bar">
+								<ul>
+									<li style="border:none;"><a href="#" class="chat"> Chat in workroom </a></li>
+									<!--
+									<li><a href="#" class="invite_team"> Invite to team-up</a></li>
+									<li class="last"><a href="#" class="contact">  Contact</a></li>
+									-->
+								</ul>
+							</div>
+							<div class="clear"></div>
+							<div class="fac_bar">
+								<ul>
+									<?php
+									$expertise_category_name = '';
+									if(isset($data_value['UserDetail']['ExpertiseCategory']['name']) &&!empty($data_value['UserDetail']['ExpertiseCategory']['name']))
+									{
+										$expertise_category_name=$data_value['UserDetail']['ExpertiseCategory']['name'];
+									}
+									?>
+									<?php if($data_value['User']['role_id']==Configure::read('App.Role.Provider') || $data_value['User']['role_id']==Configure::read('App.Role.Both') ){?>
+									<li><span>Expertise Category</span>:<?php echo $expertise_category_name;?></li>		
+									<?php }?>
+									<?php
+									$country_name = '';
+									if(isset($data_value['UserDetail']['Country']['name']) &&!empty($data_value['UserDetail']['Country']['name']))
+									{
+										$country_name=$data_value['UserDetail']['Country']['name'];
+									}
+									
+									?>
+									<li><div class="flag_icon"><?php if(!empty($data_value['UserDetail']['Country']['country_flag'])){ echo $this->Html->image(FLAG_DIR_TEMP_PATH.$data_value['UserDetail']['Country']['country_flag'],array('title'=>ucfirst($country_name),'alt'=>ucfirst($country_name)));}?> </div><?php echo ucfirst($country_name);?></li>
+									<!--<li>Electronic Gadgets </li>-->
+									<?php if($data_value['User']['role_id']==Configure::read('App.Role.Provider') || $data_value['User']['role_id']==Configure::read('App.Role.Both') ){?>
+									<li><span>Reference Hourly Rate($) Max</span>:<?php echo $data_value['UserDetail']['max_reference_rate']?> Hrs/Week. </li>
+									<li><span>Reference Hourly Rate($) Min</span>:<?php echo $data_value['UserDetail']['min_reference_rate']?> Hrs/Week. </li>
+									<?php
+									}
+									?>
+									<li>3 Projects</li>
+
+									<li class="last"><a href="#"><?php echo $this->Html->image('pink_star.png'); ?></a><a href="#"><?php echo $this->Html->image('pink_star.png'); ?></a><a href="#"><?php echo $this->Html->image('pink_star.png'); ?></a><a href="#"><?php echo $this->Html->image('grey_star.png'); ?></a><a href="#"><?php echo $this->Html->image('grey_star.png'); ?></a></li>
+
+								</ul>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+
+					<div class="detail_bottom">
+					<p><?php echo nl2br(ucfirst($data_value['UserDetail']['about_us']));?></p>
+
+					<div class="skills"><!--Skills: <span>PHP5 1</span>, <span>MySql</span>, <span>Programming Aptitute</span>-->
+					Skills:
+					<?php
+					$output = array();
+						foreach( $data_value['Skill'] as $expertskill_name){
+						  $output[] = '<span>'.ucfirst($expertskill_name['name'])."</span>";
+						}
+						echo $skill_data=implode(',&nbsp;&nbsp;', $output);
+					?>	
+					</div>
+					</div>
+				</div>
+			
+			</div>
+			<div class="clear"></div>
+	<?php
+		}
+	}
+	else{
+		echo $this->element('Front/ele_no_record_found');
+	}?>
+	<div class="paginatn">
+		<p><a href="javascript:void(0);" id="back_to_top">Back to top ^</a></p>
+		<?php if($this->request->params['paging']['User']['count']>=Configure::read('App.PageLimit')){ ?>
+			<?php echo $this->element("Front/ele_paging"); ?>
+		<?php }?>
+	</div>
+<script>
+$("#back_to_top").click(function(){
+	$('html, body').animate({ scrollTop: 0 }, 1000);
+});
+</script>	

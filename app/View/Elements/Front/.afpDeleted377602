@@ -1,0 +1,143 @@
+ <!--   <?php  
+  	App::import("model", "Workroom");  
+  	 // type ,   user_id  ;   
+  	$user_id  =    $this->Session->read('Auth.User.id');  
+    $model  = new Workroom();  
+ 
+    //   Latest Communnications   ,    All Workrooms      Separated by Project :   
+    //   ChatRoom Latest Communications :  
+        
+?> --> 
+  
+<?php 
+   	$drop_data  =  $model->getLatestDrop($user_id); 
+?>
+  
+<div class="dropdown latest_wokrooms"> 
+	<h2>
+		<a href="#" class="show_hide">  <?if ($type=="wokroom"):?>Available Workrooms <? else:?>  Available Chatrooms  <?endif;?>  <span class="arwblk"></span></a>
+		<div class="slidingDiv">
+			<ul>
+				<li> 
+					<h6>Latest Communications:</h6> 
+				</li>		
+
+
+				<?php
+
+
+				 foreach($drop_data["last"] as $project_name => $data):
+					if (  count($data)>0): 
+
+				?>
+					<li><b><?=$project_name?></b></li>
+					<? foreach($data as  $id=>$t):
+							foreach($t as $title): 
+
+					 					?> 
+					<?	
+						$pre =  explode(">>", $title) ;
+						$title = $pre[0];  
+
+					?>
+
+						<li><a href='<?=SITE_URL?>workrooms/chatroom/<?=$id?>/<?=$pre[1]?>'>   <?=$title?> </a> 
+								<div class="edit_deletBX">
+								 <input type="button" rel="<?=$pre[1]?>" title="<?=$title?>" value="" class="delete removechatroom" id="north-east">
+								 </div> 
+ 						</li>
+ 							<? endforeach;?>
+					<? endforeach;?>
+				<?php endif; endforeach;?> 
+
+
+
+				<?php if ($type=="wokroom"): ?> 
+					<li><h6>All Workrooms:</h6></li> 
+					<?php foreach($drop_data["all"] as $project_name => $data):
+						if (!empty($project_name) && count($data)>0): 
+					?>
+						<li class='title_project'><b><?=$project_name?></b></li> 
+						<? foreach($data as  $id=>$title):?>
+							<li> <a href='<?=SITE_URL?>workrooms/workroom/<?=$id?>'>   <?=$title?> </a> </li>
+						<? endforeach;?> 
+					 <?php endif; endforeach;?>  
+				<? endif;?> 
+			</ul>
+		</div>                
+	</h2> 
+</div> 
+  
+
+  <!-- Script -->  
+ <script type="text/javascript"> 
+  		jQuery(document).ready(function(){
+
+
+
+  		   	jQuery(".removechatroom").click(function(){
+  					var rel  =  jQuery(this).attr("rel");  
+  					jQuery("#rtitle").text(jQuery(this).attr("title"));  
+  					jQuery("#removeto").val(rel); 
+  					 	jQuery("#removechatroom").fadeIn();
+		  					$('#removechatroom .popup').css('top', '-1000px')
+		  									.animate({'top': '0'}, 500);
+ 
+  			}); 
+
+
+
+
+
+
+
+
+
+			$('.js-ClosePopup').bind('click', function(){
+	  					$('.popup').animate({'top': '-1000px'}, 300, function(){$('.popup-wrapper').fadeOut();});
+	  					});
+						$('.popup').css('top', '-1000px')
+							.animate({'top': '0'}, 500);
+							closePopup(); 
+
+						 function closePopup() {
+							$('.popup-wrapper').bind('click', function(event){
+								var container = $(this).find('.popup');
+								if (container.has(event.target).length === 0){
+									container.animate({'top': '-1000px'}, 300, function(){$('.popup-wrapper').fadeOut();});
+								}
+							});
+						}
+
+
+
+ 		});
+
+
+  </script>
+
+
+    <!-- Popup Starts Here  -->  
+
+							<div class="popup-wrapper show"  id='removechatroom' > 
+									<div class='popup_invite_deffault popup'> 
+										<h3> Remove Chatroom: <span id='rtitle'> <?=$title?> </span> </h3><div class="popup_invite_content">
+											<form method="post"  > 
+											<input type='hidden' name='mark_removed' id='removeto' value='' /> 
+												<p> <?=REMOVE_CHAT_ROOM_1?></p>		
+												 
+													<button type='submit'>   Delete   </button> 
+												</form>  
+ 												 <span class="continue_team js-ClosePopup" style="margin-left: 10px; cursor: pointer;"  >Cancel  </span> 
+							   				 
+ 											 <div class="clear"></div>
+										</div>
+								   	</div>
+								</div>
+	   
+
+
+
+   <!--  End Popup here  -->
+
+  

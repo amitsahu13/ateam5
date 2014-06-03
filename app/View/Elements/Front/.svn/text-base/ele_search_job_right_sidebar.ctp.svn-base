@@ -1,0 +1,131 @@
+		<h2><a href="#" class="txt_trans"> <?php echo $this->Paginator->counter(array('format' => '( %start% - %end%  of %count% results )'));?></a></h2> 
+			<span class="slct_rwndInPut sort_dropawn dropdwn_H">
+			
+			<?php
+				  $option=array('job_name'=>'Job Name','posting_date'=>'Posting Date');
+			echo ($this->Form->input('Job.sortby', array('div'=>false, 'label'=>false,'empty'=>'-- SortBy --','options'=>$option,"class" => "slct_rwndInPutRi with_sml1",'onchange'=>'javascript:jobsortBy();')));
+				
+			?> 
+			</span>
+			<div class="clear"></div>
+			<?php if(!empty($job_list)){
+				
+							$this->ExPaginator->options = array('url' => $this->passedArgs);
+							$this->Paginator->options(array('url' => $this->passedArgs));
+								
+				foreach($job_list as $key=>$jobs){
+				
+				?>
+					<div class="expert_detail">
+						<h2 class="col_blue"><?php echo $this->Html->link($jobs['Job']['title'],array('controller'=>'jobs','action'=>'job_detail',$jobs['Job']['id']),array('class'=>'col_blue_title','title'=>$jobs['Job']['title'],'alt'=>$jobs['Job']['title'])); ?></h2>
+						<!--
+						<div class="whtlist whtlist_rht">
+							<a class="flr_icon blue_i" href="#"></a>
+							<p><a href="#">Add to watchlist</a></p>
+						</div>
+						-->
+						<div class="clear"></div>
+						<div class="deatil_content">
+							<div class="detail_top">
+								<div class="nav_bar padding_left margin_bottom">
+									<ul>
+									<li style="border:none;"><a href="#" class="chat"> Chat in workroom </a></li>
+									<!--
+									<li><a href="#" class="invite_team"> Invite to team-up</a></li>
+									<li class="last"><a href="#" class="contact">  Contact</a></li>
+									-->
+									</ul>
+								</div>
+								<div class="detail_bottom">
+									<p class="font_fam">Parent project: <span class="norm"><?php echo ucfirst($jobs['Project']['title']); ?> for <a href="#" class="col_blue"><?php echo ucfirst($jobs['Project']['Category']['name']); ?></a> & <a href="#"  class="col_blue"><?php echo ucfirst($jobs['Project']['ProjectChildCategory']['name']); ?></a></span></p>
+									<p class="font_fam">Job posted: <span class="norm">
+									<?php
+										echo $this->Time->timeAgoInWords($jobs['Job']['created'], array('format' => 'F jS, Y'));
+									?>
+									</span></p>
+									<p class="font_fam">Proposals:<span class="norm">3</span></p>
+									<p class="font_fam">Category:<span class="norm"><?php echo $jobs['Category']['name']; ?></span></p>
+									<p class="font_fam">Requried skills:<span class="col_blue norm">
+												<?php 
+												$output = array();
+												foreach( $jobs['Skill'] as $jobskill_name){
+												  $output[] = $jobskill_name['name'];
+												}
+												echo $skill_data=implode(', ', $output);
+												?>
+												</span>
+									</p>
+									<p class="font_fam">Refernce Budject: <span class="norm"><?php echo $jobs['Job']['refrence_budget']; ?>$</span></p>
+									<p class="font_fam">Type of Agreement:<span class="norm">Contractor</span></p>
+									
+									<?php if($jobs['Job']['look_contracter']=='1'){?>
+											<p class="font_fam">Contracter Compansation:
+											<?php if($jobs['Job']['delayed_payment']=='1' ){?>
+													<span class="norm">Delayed Payment :<?php echo $jobs['Job']['delayed_payment_money']; ?>$</span>
+											<?php }
+												if($jobs['Job']['contracter_percent']=='1'){?>	
+												<span class="norm">& Percent :<?php echo $jobs['Job']['contracter_percent_value']; ?>%</span>
+											<?php }?>
+											</p>
+									<?php }
+									if($jobs['Job']['look_cofounder']=='1' && $jobs['Job']['cofounder_percent']=='1'){?>
+											<p class="font_fam">Cofounder Compansation:<span class="norm">Percent :<?php echo $jobs['Job']['cofounder_percent_value']; ?>%</span></p>
+									<?php }?>
+									<p class="font_fam float_left">Leader's location:<span class="norm"><?php echo ucfirst($jobs['Project']['User']['UserDetail']['Country']['name']); ?></span></p> <div class="peru_flag"><?php if(!empty($jobs['Project']['User']['UserDetail']['Country']['country_flag'])){ echo $this->Html->image(FLAG_DIR_TEMP_PATH.$jobs['Project']['User']['UserDetail']['Country']['country_flag'],array('title'=>ucfirst($jobs['Project']['User']['UserDetail']['Country']['name']),'alt'=>ucfirst($jobs['Project']['User']['UserDetail']['Country']['name'])));} ?></div>
+									<p class="font_fam">Leader's username:<span class="col_blue norm"><a href="#"  class="col_blue"><?php echo ucfirst($jobs['Project']['User']['first_name']).' '.ucfirst($jobs['Project']['User']['last_name']); ?></a></span></p>
+									<!--
+									<p class="font_fam float_left">Leader's Verifications:</p>
+									<div class="fields_container bg_none icon_mnagr">
+										<ul>
+										<li><a href="#" class="map"></a></li>
+										<li><a href="#" class="msg"></a></li>
+										<li><a href="#" class="phone"></a></li>
+										<li><a href="#" class="home"></a></li>
+										<li><a href="#" class="P"></a></li>
+										<li><a href="#" class="user"></a></li>
+										</ul>
+									</div>
+									-->
+									<div class="clear"></div>
+									<p class="font_fam">Req. Location:<span class="norm"><?php echo ucfirst($jobs['Region']['name']);?> ,<?php echo ucfirst($jobs['Country']['name']);?> ,<?php echo ucfirst($jobs['State']['name']);?>, <?php echo ucfirst($jobs['Job']['city']);?></span></p>
+									<p class="font_fam">Req/ Availablility:<span class="norm"><?php echo $jobs['Job']['compensation_avalibility'];?> Hrs./Week</span></p>
+									<!--
+									<p class="font_fam float_left">Req. Verifications:</p>
+									<div class="fields_container bg_none icon_mnagr">
+										<ul>
+										<li><a href="#" class="map_p"></a></li>
+											<li><a href="#" class="msg_p"></a></li>
+											<li><a href="#" class="phone_p"></a></li>
+											<li><a href="#" class="home_p"></a></li>
+											<li><a href="#" class="P_p"></a></li>
+											<li><a href="#" class="user_p"></a></li>
+										</ul>
+									</div>
+									-->	
+									<p>Description: <?php echo ucfirst(nl2br($jobs['Job']['description'])); ?></p>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>	 
+					</div>
+					<div class="clear"></div>
+		<?php 	}
+			}
+			else{
+				echo $this->element('Front/ele_no_record_found');
+			}
+			?>
+			
+			 
+			<div class="paginatn">
+				<p><a href="javascript:void(0);" id="back_to_top">Back to top ^</a></p>
+				<?php if($this->request->params['paging']['Job']['count']>=Configure::read('App.PageLimit')){ ?>
+					<?php echo $this->element("Front/ele_paging"); ?>
+				<?php }?>
+			</div>
+<script>
+$("#back_to_top").click(function(){
+	$('html, body').animate({ scrollTop: 0 }, 1000);
+});
+</script>
+		
